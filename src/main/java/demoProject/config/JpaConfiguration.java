@@ -30,6 +30,13 @@ public class JpaConfiguration extends JpaBaseConfiguration {
         HashMap<String, Object> map = new HashMap<>();
         map.put(PersistenceUnitProperties.WEAVING, detectWeavingMode());
         map.put(PersistenceUnitProperties.DDL_GENERATION, "none");
+        map.put(PersistenceUnitProperties.LOGGING_LEVEL, "FINE");
+        map.put(PersistenceUnitProperties.LOGGING_PARAMETERS, "true");
+        map.put(PersistenceUnitProperties.LOGGING_SESSION, "false");
+        map.put(PersistenceUnitProperties.LOGGING_THREAD, "false");
+        map.put(PersistenceUnitProperties.LOGGING_TIMESTAMP, "false");
+        map.put(PersistenceUnitProperties.LOGGING_CONNECTION, "false");
+        map.put(PersistenceUnitProperties.LOGGING_LOGGER, "ServerLogger");
         return map;
     }
 

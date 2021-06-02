@@ -20,7 +20,11 @@ public class Employee {
     @NotNull
     private String employeeName;
 
-    @ManyToOne(targetEntity = Department.class, fetch = FetchType.EAGER, cascade = ALL)
+    /**
+     * @JoinColumn => Used to form a bidirectional association via foreign key
+     * @JsonBackReference => It will be omitted from serialization by jackson to prevent infinite recursion
+     */
+    @ManyToOne
     @JoinColumn(name = "department_id", nullable = false)
     @JsonBackReference
     private Department department;

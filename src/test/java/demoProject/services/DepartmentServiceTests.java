@@ -1,9 +1,9 @@
-package demoProject.departmentTests;
+package demoProject.services;
 
+import demoProject.exceptions.NoSuchElementFoundException;
 import demoProject.models.Department;
 import demoProject.models.Employee;
 import demoProject.repositories.DepartmentRepository;
-import demoProject.services.DepartmentService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -34,9 +34,6 @@ public class DepartmentServiceTests {
 
     @BeforeEach()
     public void init() {
-        /**
-         * Creating dummy data
-         */
         departmentService = new DepartmentService(departmentRepository);
         List<Employee> employees = new ArrayList<>();
         expectedDepartment = new Department(1L, "AB", employees);
@@ -47,21 +44,12 @@ public class DepartmentServiceTests {
 
     @Test
     @DisplayName("Test Get Department By Id")
-    public void testGetDepartmentById() {
+    public void testGetDepartmentById() throws NoSuchElementFoundException {
 
-        /**
-         * Defining test criteria
-         */
         Mockito.when(departmentRepository.findById(1L)).thenReturn(Optional.of(expectedDepartment));
 
-        /**
-         * Setting actual obtained data
-         */
         Department actualDepartment = departmentService.getDepartmentById(1L);
 
-        /**
-         * Actual Testing
-         */
         Assertions.assertEquals(expectedDepartment.getDepartmentId(), actualDepartment.getDepartmentId());
     }
 
@@ -101,17 +89,17 @@ public class DepartmentServiceTests {
 
     @Test
     @DisplayName("Test Delete Department Method")
-    public void testDeleteDepartmentById() {
+    public void testDeleteDepartmentById() throws NoSuchElementFoundException {
 
         departmentService.deleteDepartment(1L);
 
-        Mockito.verify(departmentRepository, Mockito.times(1)).deleteById(1L);
+        Mockito.verify(departmentRepository, Mockito.times(1)).existsById(1L);
 
     }
 
     @Test
     @DisplayName("Test Update Department Method")
-    public void testUpdateDepartmentMethod() {
+    public void testUpdateDepartmentMethod() throws NoSuchElementFoundException {
 
         List<Employee> employees = new ArrayList<>();
         Department newDepartment = new Department(1L, "ABC", employees);

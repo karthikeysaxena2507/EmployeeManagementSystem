@@ -1,9 +1,9 @@
 package demoProject.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.eclipse.persistence.annotations.BatchFetch;
 import org.eclipse.persistence.annotations.BatchFetchType;
+import org.eclipse.persistence.annotations.PrivateOwned;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -24,9 +24,23 @@ public class Department {
     @NotNull
     private String departmentName;
 
+    /**
+     * targetEntity => specifies the target(child) entity
+     * mappedBy => used to define the child of the parent-child relationship
+     * cascade => Allows to apply Operations on related entities (ALL allows all operations)
+     * fetch => specifies the type of fetching when fetching parent data
+     * -- LAZY: fetch when needed
+     * -- EAGER: fetch immediately
+     * JsonManagedReference => used to prevent infinite recursion while serializing
+     * BatchFetch => Allows to read multiple objects via single query
+     * PrivateOwned => If the reference of the child is deleted from parent, Eclipse
+     *                 Link will delete the child from the child table as well.
+     *                 It prevents the need to explicitly delete items from child table.
+     */
     @OneToMany(targetEntity = Employee.class, mappedBy = "department", cascade = ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "employee_id")
     @JsonManagedReference
+    @BatchFetch(BatchFetchType.IN)
+    @PrivateOwned
     List<Employee> employees;
 
     protected Department() {

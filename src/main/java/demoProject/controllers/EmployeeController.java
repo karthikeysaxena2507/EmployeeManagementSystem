@@ -1,19 +1,19 @@
 package demoProject.controllers;
 
+import demoProject.exceptions.NoSuchElementFoundException;
 import demoProject.models.Employee;
 import demoProject.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+
 import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Controller
 @Path("/employees")
 public class EmployeeController {
 
-    private EmployeeService employeeService;
+    private final EmployeeService employeeService;
 
     @Autowired
     public EmployeeController(EmployeeService employeeService) {
@@ -33,7 +33,7 @@ public class EmployeeController {
 
     @GET
     @Path("/{id}")
-    public Response getEmployeeById(@PathParam("id") Long employeeId) {
+    public Response getEmployeeById(@PathParam("id") Long employeeId) throws NoSuchElementFoundException {
         return Response
                 .status(Response.Status.OK)
                 .entity(employeeService.getEmployeeById(employeeId))
@@ -45,7 +45,7 @@ public class EmployeeController {
     @Path("/add")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addEmployee(@Valid Employee employee) {
+    public Response addEmployee(@Valid Employee employee){
         return Response
                 .status(Response.Status.OK)
                 .entity(employeeService.addEmployee(employee))
@@ -57,7 +57,7 @@ public class EmployeeController {
     @Path("/update")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response updateEmployee(@Valid Employee employee) {
+    public Response updateEmployee(@Valid Employee employee) throws NoSuchElementFoundException {
         return Response
                 .status(Response.Status.OK)
                 .entity(employeeService.updateEmployee(employee))
@@ -67,7 +67,7 @@ public class EmployeeController {
 
     @DELETE
     @Path("/delete/{id}")
-    public Response deleteEmployee(@PathParam("id") Long employeeId) {
+    public Response deleteEmployee(@PathParam("id") Long employeeId) throws NoSuchElementFoundException {
         employeeService.deleteEmployee(employeeId);
         return Response
                 .status(Response.Status.OK)

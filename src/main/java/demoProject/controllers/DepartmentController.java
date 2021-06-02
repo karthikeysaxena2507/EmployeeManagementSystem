@@ -1,5 +1,6 @@
 package demoProject.controllers;
 
+import demoProject.exceptions.NoSuchElementFoundException;
 import demoProject.models.Department;
 import demoProject.services.DepartmentService;
 import org.slf4j.Logger;
@@ -16,13 +17,17 @@ import javax.ws.rs.core.Response;
 @Path("/departments")
 public class DepartmentController {
 
-    private DepartmentService departmentService;
+    private final DepartmentService departmentService;
 
     Logger logger = LoggerFactory.getLogger(DepartmentController.class);
 
     @Autowired
     public DepartmentController(DepartmentService departmentService) {
         this.departmentService = departmentService;
+    }
+
+    public String hello() {
+        return "hello";
     }
 
     @GET
@@ -39,12 +44,18 @@ public class DepartmentController {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getDepartmentById(@PathParam("id") Long departmentId) {
-        return Response
-                .status(Response.Status.OK)
-                .entity(departmentService.getDepartmentById(departmentId))
-                .type(MediaType.APPLICATION_JSON_TYPE)
-                .build();
+    public Response getDepartmentById(@PathParam("id") Long departmentId) throws NoSuchElementFoundException {
+//        try {
+            return Response
+                    .status(Response.Status.OK)
+                    .entity(departmentService.getDepartmentById(departmentId))
+                    .type(MediaType.APPLICATION_JSON_TYPE)
+                    .build();
+//        }
+//        catch(NoSuchElementFoundException exc) {
+//            NoSuchElementFoundExceptionMapper mapper = new NoSuchElementFoundExceptionMapper();
+//            return mapper.toResponse(exc);
+//        }
     }
 
     @POST
@@ -63,7 +74,7 @@ public class DepartmentController {
     @Path("/update")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response updateDepartment(@Valid Department department) {
+    public Response updateDepartment(@Valid Department department) throws NoSuchElementFoundException {
         return Response
                 .status(Response.Status.OK)
                 .entity(departmentService.updateDepartment(department))
@@ -73,7 +84,7 @@ public class DepartmentController {
 
     @DELETE
     @Path("/delete/{id}")
-    public Response deleteDepartment(@PathParam("id") Long departmentId) {
+    public Response deleteDepartment(@PathParam("id") Long departmentId) throws NoSuchElementFoundException {
         departmentService.deleteDepartment(departmentId);
         return Response
                 .status(Response.Status.OK)
