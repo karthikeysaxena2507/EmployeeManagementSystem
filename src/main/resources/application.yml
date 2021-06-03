@@ -1,10 +1,21 @@
 server:
   port: 5001
 
+
 spring:
   datasource:
     url: jdbc:oracle:thin:@localhost:1521/XE
-    username: ORADB2
-    password: oracle123
+    username: ${dbusername}
+    password: ${dbpassword}
+#      username: ORADB2
+#      password: oracle123
   jpa:
     show-sql: true
+    properties:
+      eclipselink.ddl-generation: none
+      eclipselink.logging.timestamp: false
+      eclipselink.logging.session: false
+      eclipselink.logging.connection: false
+      eclipselink.logging.thread: false
+      eclipselink.logging.level.sql: FINE
+      eclipselink.logging.parameters: true

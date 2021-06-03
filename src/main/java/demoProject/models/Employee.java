@@ -1,6 +1,8 @@
 package demoProject.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import org.eclipse.persistence.annotations.BatchFetch;
+import org.eclipse.persistence.annotations.BatchFetchType;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -27,10 +29,17 @@ public class Employee {
     @ManyToOne
     @JoinColumn(name = "department_id", nullable = false)
     @JsonBackReference
+    @BatchFetch(BatchFetchType.IN)
     private Department department;
 
     protected Employee() {
 
+    }
+
+    public Employee(Long employeeId, String employeeName, Department department) {
+        this.employeeId = employeeId;
+        this.employeeName = employeeName;
+        this.department = department;
     }
 
     public Employee(String employeeName, Department department) {

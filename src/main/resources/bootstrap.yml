@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: demoProject
+  cloud:
+    vault:
+      host: localhost
+      port: 8200
+      scheme: http
+      token: s.inQkxQL7YZIZNo5A8vfSl5UH

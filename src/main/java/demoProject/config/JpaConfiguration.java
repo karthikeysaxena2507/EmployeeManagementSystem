@@ -2,6 +2,7 @@ package demoProject.config;
 
 import org.eclipse.persistence.config.PersistenceUnitProperties;
 import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
 import org.springframework.context.annotation.Configuration;
@@ -20,6 +21,10 @@ public class JpaConfiguration extends JpaBaseConfiguration {
     protected JpaConfiguration(DataSource dataSource, JpaProperties properties, ObjectProvider<JtaTransactionManager> jtaTransactionManager) {
         super(dataSource, properties, jtaTransactionManager);
     }
+
+    @Autowired
+    private JpaProperties jpaProperties;
+
     @Override
     protected AbstractJpaVendorAdapter createJpaVendorAdapter() {
         return new EclipseLinkJpaVendorAdapter();
@@ -29,20 +34,9 @@ public class JpaConfiguration extends JpaBaseConfiguration {
     protected Map<String, Object> getVendorProperties() {
         HashMap<String, Object> map = new HashMap<>();
         map.put(PersistenceUnitProperties.WEAVING, detectWeavingMode());
-        map.put(PersistenceUnitProperties.DDL_GENERATION, "none");
-        map.put(PersistenceUnitProperties.LOGGING_LEVEL, "FINE");
-        map.put(PersistenceUnitProperties.LOGGING_PARAMETERS, "true");
-        map.put(PersistenceUnitProperties.LOGGING_SESSION, "false");
-        map.put(PersistenceUnitProperties.LOGGING_THREAD, "false");
-        map.put(PersistenceUnitProperties.LOGGING_TIMESTAMP, "false");
-        map.put(PersistenceUnitProperties.LOGGING_CONNECTION, "false");
-        map.put(PersistenceUnitProperties.LOGGING_LOGGER, "ServerLogger");
+        map.putAll(this.jpaProperties.getProperties());
         return map;
     }
-
-//    drop-and-create-tables
-//    create-or-extend-tables
-//    none
 
     private String detectWeavingMode() {
         return InstrumentationLoadTimeWeaver.isInstrumentationAvailable() ? "true" : "static";

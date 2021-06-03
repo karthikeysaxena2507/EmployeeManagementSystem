@@ -1,26 +1,29 @@
-package demoProject.services;
+package demoProject.repositories;
 
 import demoProject.exceptions.NoSuchElementFoundException;
 import demoProject.models.Department;
-import demoProject.repositories.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
-public class DepartmentService {
+public class DepartmentRepositoryImpl{
 
-    private final DepartmentRepository departmentRepository;
+    private DepartmentRepository departmentRepository;
 
     @Autowired
-    public DepartmentService(DepartmentRepository departmentRepository) {
+    public void setDepartmentRepository(DepartmentRepository departmentRepository) {
         this.departmentRepository = departmentRepository;
+    }
+
+    public DepartmentRepositoryImpl() {
+
     }
 
     public Department getDepartmentById(Long departmentId) throws NoSuchElementFoundException {
         return departmentRepository.findById(departmentId).orElseThrow(NoSuchElementFoundException::new);
     }
-
 
     public List<Department> getAllDepartments() {
         return departmentRepository.findAll();
@@ -30,19 +33,23 @@ public class DepartmentService {
         return departmentRepository.save(department);
     }
 
+    public Department getDepartmentByName(String name) {
+        return departmentRepository.findByDepartmentName(name);
+    }
+
     public Department updateDepartment(Department department) throws NoSuchElementFoundException {
-          return departmentRepository.save(department);
-//        if(departmentRepository.existsById(department.getDepartmentId())) {
-//            return departmentRepository.save(department);
-//        }
-//        else throw new NoSuchElementFoundException();
+//        return departmentRepository.save(department);
+        if(departmentRepository.existsById(department.getDepartmentId())) {
+            return departmentRepository.save(department);
+        }
+        else throw new NoSuchElementFoundException();
     }
 
     public void deleteDepartment(Long departmentId) throws NoSuchElementFoundException {
-        departmentRepository.deleteById(departmentId);
-//        if(departmentRepository.existsById(departmentId)) {
-//            departmentRepository.deleteById(departmentId);
-//        }
-//        else throw new NoSuchElementFoundException();
+//        departmentRepository.deleteById(departmentId);
+        if(departmentRepository.existsById(departmentId)) {
+            departmentRepository.deleteById(departmentId);
+        }
+        else throw new NoSuchElementFoundException();
     }
 }

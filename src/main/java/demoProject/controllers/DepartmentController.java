@@ -2,7 +2,7 @@ package demoProject.controllers;
 
 import demoProject.exceptions.NoSuchElementFoundException;
 import demoProject.models.Department;
-import demoProject.services.DepartmentService;
+import demoProject.repositories.DepartmentRepositoryImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,17 +17,13 @@ import javax.ws.rs.core.Response;
 @Path("/departments")
 public class DepartmentController {
 
-    private final DepartmentService departmentService;
+    private final DepartmentRepositoryImpl departmentService;
 
     Logger logger = LoggerFactory.getLogger(DepartmentController.class);
 
     @Autowired
-    public DepartmentController(DepartmentService departmentService) {
+    public DepartmentController(DepartmentRepositoryImpl departmentService) {
         this.departmentService = departmentService;
-    }
-
-    public String hello() {
-        return "hello";
     }
 
     @GET
@@ -42,24 +38,29 @@ public class DepartmentController {
     }
 
     @GET
+    @Path("/get/{name}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getDepartmentByName(@PathParam("name") String name) {
+        return Response
+                .status(Response.Status.OK)
+                .entity(departmentService.getDepartmentByName(name))
+                .type(MediaType.APPLICATION_JSON_TYPE)
+                .build();
+    }
+
+    @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getDepartmentById(@PathParam("id") Long departmentId) throws NoSuchElementFoundException {
-//        try {
-            return Response
-                    .status(Response.Status.OK)
-                    .entity(departmentService.getDepartmentById(departmentId))
-                    .type(MediaType.APPLICATION_JSON_TYPE)
-                    .build();
-//        }
-//        catch(NoSuchElementFoundException exc) {
-//            NoSuchElementFoundExceptionMapper mapper = new NoSuchElementFoundExceptionMapper();
-//            return mapper.toResponse(exc);
-//        }
+        return Response
+                .status(Response.Status.OK)
+                .entity(departmentService.getDepartmentById(departmentId))
+                .type(MediaType.APPLICATION_JSON_TYPE)
+                .build();
     }
 
     @POST
-    @Path("/add")
+    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addDepartment(@Valid Department department) {
@@ -71,7 +72,7 @@ public class DepartmentController {
     }
 
     @PUT
-    @Path("/update")
+    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response updateDepartment(@Valid Department department) throws NoSuchElementFoundException {
@@ -83,7 +84,7 @@ public class DepartmentController {
     }
 
     @DELETE
-    @Path("/delete/{id}")
+    @Path("/{id}")
     public Response deleteDepartment(@PathParam("id") Long departmentId) throws NoSuchElementFoundException {
         departmentService.deleteDepartment(departmentId);
         return Response

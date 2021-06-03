@@ -1,10 +1,8 @@
-package demoProject.services;
+package demoProject.repositories;
 
 import demoProject.exceptions.NoSuchElementFoundException;
 import demoProject.models.Department;
 import demoProject.models.Employee;
-import demoProject.repositories.DepartmentRepository;
-import demoProject.repositories.EmployeeRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,19 +11,15 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class EmployeeService {
-
-    private final EmployeeRepository employeeRepository;
-
-    private final DepartmentRepository departmentRepository;
-
-    Logger logger = LoggerFactory.getLogger(EmployeeService.class);
+public class EmployeeRepositoryImpl {
 
     @Autowired
-    public EmployeeService(EmployeeRepository employeeRepository, DepartmentRepository departmentRepository) {
-        this.employeeRepository = employeeRepository;
-        this.departmentRepository = departmentRepository;
-    }
+    private EmployeeRepository employeeRepository;
+
+    @Autowired
+    private DepartmentRepository departmentRepository;
+
+    Logger logger = LoggerFactory.getLogger(EmployeeRepositoryImpl.class);
 
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
@@ -33,6 +27,10 @@ public class EmployeeService {
 
     public Employee getEmployeeById(Long employeeId) throws NoSuchElementFoundException {
         return employeeRepository.findById(employeeId).orElseThrow(NoSuchElementFoundException::new);
+    }
+
+    public Employee getEmployeeByName(String employeeName) {
+        return employeeRepository.findByEmployeeName(employeeName);
     }
 
     public List<Employee> addEmployee(Employee employee) {
