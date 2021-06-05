@@ -1,11 +1,13 @@
 package demoProject.repositories;
 
+import demoProject.config.JpaConfiguration;
 import demoProject.exceptions.NoSuchElementFoundException;
 import demoProject.models.Department;
 import demoProject.models.Employee;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
@@ -15,7 +17,7 @@ import java.util.List;
 @ActiveProfiles("test")
 @SpringBootTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
-public class DepartmentRepositoryTests{
+public class DepartmentRepositoryTest {
 
     @Autowired
     private DepartmentRepository departmentRepository;

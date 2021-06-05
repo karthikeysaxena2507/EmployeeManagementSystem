@@ -6,18 +6,26 @@ import demoProject.models.Employee;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
-public class EmployeeRepositoryImpl {
+public class EmployeeRepositoryImpl implements EmployeeRepositoryCustom {
 
-    @Autowired
     private EmployeeRepository employeeRepository;
 
-    @Autowired
     private DepartmentRepository departmentRepository;
+
+    /** @Lazy => Helps to break cyclic bean dependency (loads only an instance of the bean from IOC, not the whole bean **/
+    @Autowired
+    public EmployeeRepositoryImpl(@Lazy EmployeeRepository employeeRepository, DepartmentRepository departmentRepository) {
+        this.employeeRepository = employeeRepository;
+        this.departmentRepository = departmentRepository;
+
+    }
 
     Logger logger = LoggerFactory.getLogger(EmployeeRepositoryImpl.class);
 
@@ -33,7 +41,7 @@ public class EmployeeRepositoryImpl {
         return employeeRepository.findByEmployeeName(employeeName);
     }
 
-    public List<Employee> addEmployee(Employee employee) {
+    public Employee addEmployee(Employee employee) {
         Long departmentId = employee.getDepartment().getDepartmentId();
         logger.info("{}", departmentId);
         Department department = departmentRepository.findById(departmentId).orElseThrow(NoSuchElementFoundException::new);
@@ -42,7 +50,7 @@ public class EmployeeRepositoryImpl {
         department.setEmployees(employees);
         logger.info("{}", employees.size());
         departmentRepository.save(department);
-        return department.getEmployees();
+        return employee;
     }
 
     public Employee updateEmployee(Employee employee) throws NoSuchElementFoundException {
@@ -65,4 +73,9 @@ public class EmployeeRepositoryImpl {
         else throw new NoSuchElementFoundException();
     }
 
+    public List<Employee> findEmployeesByDepartmentId(Long departmentId) {
+        List<Employee> employees = employeeRepository.findAll();
+        employees.stream().filter(e -> e.getDepartment().getDepartmentId().equals(departmentId)).collect(Collectors.toList());
+        return employees;
+    }
 }

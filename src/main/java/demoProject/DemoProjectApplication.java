@@ -18,16 +18,4 @@ public class DemoProjectApplication {
 
 	Logger logger = LoggerFactory.getLogger(DemoProjectApplication.class);
 
-//	@Value("${dbpassword:}")
-//	String password;
-//
-//	@Value("${dbusername:}")
-//	String username;
-//
-//	@PostConstruct
-//	private void postConstruct() {
-//		logger.info(username);
-//		logger.info(password);
-//	}
-
 }

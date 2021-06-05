@@ -5957,7 +5957,7 @@ Caused by: java.lang.RuntimeException: Driver org.h2.Driver claims to not accept
 	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
 	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:772)
 	... 145 common frames omitted
-[33m10:31:29.239[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@4681c175] to prepare test instance [demoProject.repositories.DepartmentRepositoryTests@176555c]
+[33m10:31:29.239[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@4681c175] to prepare test instance [demoProject.repositories.DepartmentRepositoryTest@176555c]
 [0;39mjava.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -6323,7 +6323,7 @@ Caused by: java.lang.RuntimeException: Driver org.h2.Driver claims to not accept
 	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
 	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:772)
 	... 145 common frames omitted
-[33m11:06:25.999[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@1a75e76a] to prepare test instance [demoProject.repositories.DepartmentRepositoryTests@55651434]
+[33m11:06:25.999[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@1a75e76a] to prepare test instance [demoProject.repositories.DepartmentRepositoryTest@55651434]
 [0;39mjava.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -8350,7 +8350,7 @@ The dependencies of some of the beans in the application context form a cycle:
 └─────┘
 
 
-[0;39m[33m13:37:01.880[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@6fa51cd4] to prepare test instance [demoProject.repositories.DepartmentRepositoryTests@c017175]
+[0;39m[33m13:37:01.880[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@6fa51cd4] to prepare test instance [demoProject.repositories.DepartmentRepositoryTest@c017175]
 [0;39mjava.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -10230,7 +10230,7 @@ Caused by: java.lang.RuntimeException: Driver org.h2.Driver claims to not accept
 	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
 	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:772)
 	... 145 common frames omitted
-[33m16:16:29.004[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5386659f] to prepare test instance [demoProject.repositories.DepartmentRepositoryTests@1dd74143]
+[33m16:16:29.004[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5386659f] to prepare test instance [demoProject.repositories.DepartmentRepositoryTest@1dd74143]
 [0;39mjava.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -10596,7 +10596,7 @@ Caused by: java.lang.RuntimeException: Driver org.h2.Driver claims to not accept
 	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
 	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:772)
 	... 145 common frames omitted
-[33m16:18:06.057[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@6fa51cd4] to prepare test instance [demoProject.repositories.DepartmentRepositoryTests@2a334bac]
+[33m16:18:06.057[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@6fa51cd4] to prepare test instance [demoProject.repositories.DepartmentRepositoryTest@2a334bac]
 [0;39mjava.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -10962,7 +10962,7 @@ Caused by: java.lang.RuntimeException: Driver org.h2.Driver claims to not accept
 	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
 	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:772)
 	... 145 common frames omitted
-[33m16:28:56.326[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5386659f] to prepare test instance [demoProject.repositories.DepartmentRepositoryTests@44a085e5]
+[33m16:28:56.326[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5386659f] to prepare test instance [demoProject.repositories.DepartmentRepositoryTest@44a085e5]
 [0;39mjava.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -11328,7 +11328,7 @@ Caused by: java.lang.RuntimeException: Driver org.h2.Driver claims to not accept
 	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
 	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:772)
 	... 145 common frames omitted
-[33m16:29:37.602[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5386659f] to prepare test instance [demoProject.repositories.DepartmentRepositoryTests@4ed4a7e4]
+[33m16:29:37.602[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5386659f] to prepare test instance [demoProject.repositories.DepartmentRepositoryTest@4ed4a7e4]
 [0;39mjava.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -11694,7 +11694,7 @@ Caused by: java.lang.RuntimeException: Driver org.h2.Driver claims to not accept
 	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
 	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:772)
 	... 145 common frames omitted
-[33m16:34:58.846[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5386659f] to prepare test instance [demoProject.repositories.DepartmentRepositoryTests@470d183]
+[33m16:34:58.846[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5386659f] to prepare test instance [demoProject.repositories.DepartmentRepositoryTest@470d183]
 [0;39mjava.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -12060,7 +12060,7 @@ Caused by: java.lang.RuntimeException: Driver org.h2.Driver claims to not accept
 	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
 	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:772)
 	... 145 common frames omitted
-[33m16:38:31.367[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5386659f] to prepare test instance [demoProject.repositories.DepartmentRepositoryTests@44d64d4e]
+[33m16:38:31.367[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5386659f] to prepare test instance [demoProject.repositories.DepartmentRepositoryTest@44d64d4e]
 [0;39mjava.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -12426,7 +12426,7 @@ Caused by: java.lang.RuntimeException: Driver org.h2.Driver claims to not accept
 	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
 	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:772)
 	... 145 common frames omitted
-[33m16:41:12.328[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5386659f] to prepare test instance [demoProject.repositories.DepartmentRepositoryTests@c386958]
+[33m16:41:12.328[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5386659f] to prepare test instance [demoProject.repositories.DepartmentRepositoryTest@c386958]
 [0;39mjava.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -12792,7 +12792,7 @@ Caused by: java.lang.RuntimeException: Driver org.h2.Driver claims to not accept
 	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
 	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:772)
 	... 145 common frames omitted
-[33m16:51:46.302[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5386659f] to prepare test instance [demoProject.repositories.DepartmentRepositoryTests@97a145b]
+[33m16:51:46.302[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5386659f] to prepare test instance [demoProject.repositories.DepartmentRepositoryTest@97a145b]
 [0;39mjava.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -13158,7 +13158,7 @@ Caused by: java.lang.RuntimeException: Driver org.h2.Driver claims to not accept
 	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
 	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:772)
 	... 145 common frames omitted
-[33m16:55:39.615[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@7ce026d3] to prepare test instance [demoProject.repositories.DepartmentRepositoryTests@66f28a1f]
+[33m16:55:39.615[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@7ce026d3] to prepare test instance [demoProject.repositories.DepartmentRepositoryTest@66f28a1f]
 [0;39mjava.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -13392,7 +13392,7 @@ Action:
 
 Consider defining a bean named 'entityManagerFactory' in your configuration.
 
-[0;39m[33m16:56:53.297[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@67c33749] to prepare test instance [demoProject.repositories.DepartmentRepositoryTests@2ea41516]
+[0;39m[33m16:56:53.297[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@67c33749] to prepare test instance [demoProject.repositories.DepartmentRepositoryTest@2ea41516]
 [0;39mjava.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -13578,7 +13578,7 @@ Action:
 
 Consider defining a bean named 'entityManagerFactory' in your configuration.
 
-[0;39m[33m17:02:23.473[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@57d7f8ca] to prepare test instance [demoProject.repositories.DepartmentRepositoryTests@6e0f5f7f]
+[0;39m[33m17:02:23.473[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@57d7f8ca] to prepare test instance [demoProject.repositories.DepartmentRepositoryTest@6e0f5f7f]
 [0;39mjava.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -13896,7 +13896,7 @@ Caused by: java.lang.RuntimeException: Driver org.h2.Driver claims to not accept
 	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
 	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:772)
 	... 145 common frames omitted
-[33m17:16:10.392[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5b247367] to prepare test instance [demoProject.repositories.DepartmentRepositoryTests@2152ab30]
+[33m17:16:10.392[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5b247367] to prepare test instance [demoProject.repositories.DepartmentRepositoryTest@2152ab30]
 [0;39mjava.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -14262,7 +14262,7 @@ Caused by: java.lang.RuntimeException: Driver org.h2.Driver claims to not accept
 	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
 	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:772)
 	... 145 common frames omitted
-[33m17:16:11.374[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5b247367] to prepare test instance [demoProject.repositories.DepartmentRepositoryTests@3fa21d49]
+[33m17:16:11.374[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5b247367] to prepare test instance [demoProject.repositories.DepartmentRepositoryTest@3fa21d49]
 [0;39mjava.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -14628,7 +14628,7 @@ Caused by: java.lang.RuntimeException: Driver org.h2.Driver claims to not accept
 	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
 	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:772)
 	... 145 common frames omitted
-[33m17:16:11.860[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5b247367] to prepare test instance [demoProject.repositories.DepartmentRepositoryTests@626d2016]
+[33m17:16:11.860[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5b247367] to prepare test instance [demoProject.repositories.DepartmentRepositoryTest@626d2016]
 [0;39mjava.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -14994,7 +14994,7 @@ Caused by: java.lang.RuntimeException: Driver org.h2.Driver claims to not accept
 	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
 	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:772)
 	... 145 common frames omitted
-[33m17:16:12.346[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5b247367] to prepare test instance [demoProject.repositories.DepartmentRepositoryTests@14fc9bd]
+[33m17:16:12.346[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5b247367] to prepare test instance [demoProject.repositories.DepartmentRepositoryTest@14fc9bd]
 [0;39mjava.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -15360,7 +15360,7 @@ Caused by: java.lang.RuntimeException: Driver org.h2.Driver claims to not accept
 	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:256)
 	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:772)
 	... 145 common frames omitted
-[33m17:29:05.425[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@14028087] to prepare test instance [demoProject.repositories.DepartmentRepositoryTests@727320fa]
+[33m17:29:05.425[0;39m [main] [1;31mERROR[0;39m [36mo.s.test.context.TestContextManager[0;39m - [32mCaught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@14028087] to prepare test instance [demoProject.repositories.DepartmentRepositoryTest@727320fa]
 [0;39mjava.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)

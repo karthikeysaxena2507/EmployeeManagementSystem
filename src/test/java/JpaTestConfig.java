@@ -11,18 +11,20 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver;
 import org.springframework.orm.jpa.vendor.AbstractJpaVendorAdapter;
 import org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.jta.JtaTransactionManager;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
 
+@ActiveProfiles("test")
 @Configuration
-public class JpaConfiguration extends JpaBaseConfiguration {
+public class JpaTestConfig extends JpaBaseConfiguration {
 
     Logger logger = LoggerFactory.getLogger(JpaConfiguration.class);
 
-    protected JpaConfiguration(DataSource dataSource, JpaProperties properties, ObjectProvider<JtaTransactionManager> jtaTransactionManager) {
+    protected JpaTestConfig(DataSource dataSource, JpaProperties properties, ObjectProvider<JtaTransactionManager> jtaTransactionManager) {
         super(dataSource, properties, jtaTransactionManager);
     }
 

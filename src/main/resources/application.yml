@@ -7,11 +7,10 @@ spring:
     url: jdbc:oracle:thin:@localhost:1521/XE
     username: ${dbusername}
     password: ${dbpassword}
-#      username: ORADB2
-#      password: oracle123
   jpa:
     show-sql: true
     properties:
+      eclipselink.weaving: static
       eclipselink.ddl-generation: none
       eclipselink.logging.timestamp: false
       eclipselink.logging.session: false

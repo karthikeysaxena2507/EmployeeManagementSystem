@@ -2,6 +2,7 @@ package demoProject.controllers;
 
 import demoProject.exceptions.NoSuchElementFoundException;
 import demoProject.models.Employee;
+import demoProject.repositories.EmployeeRepository;
 import demoProject.repositories.EmployeeRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,11 +16,11 @@ import javax.ws.rs.core.Response;
 @Path("/employees")
 public class EmployeeController {
 
-    private final EmployeeRepositoryImpl employeeService;
+    private final EmployeeRepository employeeRepository;
 
     @Autowired
-    public EmployeeController(EmployeeRepositoryImpl employeeService) {
-        this.employeeService = employeeService;
+    public EmployeeController(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
     }
 
     @GET
@@ -28,7 +29,7 @@ public class EmployeeController {
     public Response getAllEmployees() {
         return Response
                 .status(Response.Status.OK)
-                .entity(employeeService.getAllEmployees())
+                .entity(employeeRepository.getAllEmployees())
                 .type(MediaType.APPLICATION_JSON_TYPE)
                 .build();
     }
@@ -39,7 +40,7 @@ public class EmployeeController {
     public Response getEmployeeById(@PathParam("id") Long employeeId) throws NoSuchElementFoundException {
         return Response
                 .status(Response.Status.OK)
-                .entity(employeeService.getEmployeeById(employeeId))
+                .entity(employeeRepository.getEmployeeById(employeeId))
                 .type(MediaType.APPLICATION_JSON_TYPE)
                 .build();
     }
@@ -50,7 +51,18 @@ public class EmployeeController {
     public Response getEmployeeByName(@PathParam("name") String name) {
         return Response
                 .status(Response.Status.OK)
-                .entity(employeeService.getEmployeeByName(name))
+                .entity(employeeRepository.getEmployeeByName(name))
+                .type(MediaType.APPLICATION_JSON_TYPE)
+                .build();
+    }
+
+    @GET
+    @Path("/get/{departmentId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getEmployeesByDepartmentId(@PathParam("departmentId") Long departmentId) {
+        return Response
+                .status(Response.Status.OK)
+                .entity(employeeRepository.findEmployeesByDepartmentId(departmentId))
                 .type(MediaType.APPLICATION_JSON_TYPE)
                 .build();
     }
@@ -62,7 +74,7 @@ public class EmployeeController {
     public Response addEmployee(@Valid Employee employee){
         return Response
                 .status(Response.Status.OK)
-                .entity(employeeService.addEmployee(employee))
+                .entity(employeeRepository.addEmployee(employee))
                 .type(MediaType.APPLICATION_JSON_TYPE)
                 .build();
     }
@@ -74,7 +86,7 @@ public class EmployeeController {
     public Response updateEmployee(@Valid Employee employee) throws NoSuchElementFoundException {
         return Response
                 .status(Response.Status.OK)
-                .entity(employeeService.updateEmployee(employee))
+                .entity(employeeRepository.updateEmployee(employee))
                 .type(MediaType.APPLICATION_JSON_TYPE)
                 .build();
     }
@@ -82,7 +94,7 @@ public class EmployeeController {
     @DELETE
     @Path("/{id}")
     public Response deleteEmployee(@PathParam("id") Long employeeId) throws NoSuchElementFoundException {
-        employeeService.deleteEmployee(employeeId);
+        employeeRepository.deleteEmployee(employeeId);
         return Response
                 .status(Response.Status.OK)
                 .entity("SUCCESS: EMPLOYEE DELETED")
