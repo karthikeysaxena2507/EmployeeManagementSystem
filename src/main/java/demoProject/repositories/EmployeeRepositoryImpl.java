@@ -37,7 +37,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepositoryCustom {
         return employeeRepository.findById(employeeId).orElseThrow(NoSuchElementFoundException::new);
     }
 
-    public Employee getEmployeeByName(String employeeName) {
+    public List<Employee> getEmployeeByName(String employeeName) throws NoSuchElementFoundException {
         return employeeRepository.findByEmployeeName(employeeName);
     }
 
@@ -75,7 +75,9 @@ public class EmployeeRepositoryImpl implements EmployeeRepositoryCustom {
 
     public List<Employee> findEmployeesByDepartmentId(Long departmentId) {
         List<Employee> employees = employeeRepository.findAll();
-        employees.stream().filter(e -> e.getDepartment().getDepartmentId().equals(departmentId)).collect(Collectors.toList());
+        System.out.println(employees);
+        employees = employees.stream().filter(e -> e.getDepartment().getDepartmentId().equals(departmentId)).collect(Collectors.toList());
+        System.out.println(employees);
         return employees;
     }
 }

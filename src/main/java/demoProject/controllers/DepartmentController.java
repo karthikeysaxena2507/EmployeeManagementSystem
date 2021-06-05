@@ -4,14 +4,12 @@ import demoProject.exceptions.NoSuchElementFoundException;
 import demoProject.models.Department;
 import demoProject.repositories.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 
 import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Controller
 @Path("/departments")
 public class DepartmentController {
 
@@ -23,9 +21,9 @@ public class DepartmentController {
     }
 
     @GET
-    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllDepartments() {
+        System.out.println(departmentRepository.getAllDepartments().size());
         return Response
                 .status(Response.Status.OK)
                 .entity(departmentRepository.getAllDepartments())
@@ -45,7 +43,6 @@ public class DepartmentController {
     }
 
     @POST
-    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addDepartment(@Valid Department department) {
@@ -57,7 +54,6 @@ public class DepartmentController {
     }
 
     @PUT
-    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response updateDepartment(@Valid Department department) throws NoSuchElementFoundException {
@@ -96,7 +92,7 @@ public class DepartmentController {
     public Response getDepartmentsByMinEmployees(@PathParam("count") Long count) {
         return Response
                 .status(Response.Status.OK)
-                .entity(departmentRepository.findDepartmentsByMinNoOfEmployees(count))
+                .entity(departmentRepository.getDepartmentsByMinNoOfEmployees(count))
                 .type(MediaType.APPLICATION_JSON_TYPE)
                 .build();
     }

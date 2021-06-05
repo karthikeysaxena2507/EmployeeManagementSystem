@@ -16,7 +16,6 @@ public class DepartmentRepositoryImpl implements DepartmentRepositoryCustom {
         this.departmentRepository = departmentRepository;
     }
 
-    @Override
     public Department getDepartmentById(Long departmentId) throws NoSuchElementFoundException {
         return departmentRepository.findById(departmentId).orElseThrow(NoSuchElementFoundException::new);
     }
@@ -29,7 +28,7 @@ public class DepartmentRepositoryImpl implements DepartmentRepositoryCustom {
         return departmentRepository.save(department);
     }
 
-    public Department getDepartmentByName(String name) {
+    public List<Department> getDepartmentByName(String name) throws NoSuchElementFoundException {
         return departmentRepository.findByDepartmentName(name);
     }
 
@@ -47,9 +46,9 @@ public class DepartmentRepositoryImpl implements DepartmentRepositoryCustom {
         else throw new NoSuchElementFoundException();
     }
 
-    public List<Department> findDepartmentsByMinNoOfEmployees(Long employeeCount) {
+    public List<Department> getDepartmentsByMinNoOfEmployees(Long employeeCount) {
         List<Department> departments = departmentRepository.findAll();
-        departments.stream().filter(d -> d.getEmployees().size() >= employeeCount).collect(Collectors.toList());
+        departments = departments.stream().filter(d -> d.getEmployees().size() >= employeeCount).collect(Collectors.toList());
         return departments;
     }
 }

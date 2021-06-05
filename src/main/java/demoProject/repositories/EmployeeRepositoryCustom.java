@@ -11,6 +11,6 @@ public interface EmployeeRepositoryCustom {
     Employee addEmployee(Employee employee);
     Employee getEmployeeById(Long employeeId);
     Employee updateEmployee(Employee employee);
-    Employee getEmployeeByName(String employeeName);
+    List<Employee> getEmployeeByName(String employeeName);
     void deleteEmployee(Long EmployeeId);
 }

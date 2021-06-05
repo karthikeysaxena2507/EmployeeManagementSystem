@@ -3,16 +3,12 @@ package demoProject.controllers;
 import demoProject.exceptions.NoSuchElementFoundException;
 import demoProject.models.Employee;
 import demoProject.repositories.EmployeeRepository;
-import demoProject.repositories.EmployeeRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-
 import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Controller
 @Path("/employees")
 public class EmployeeController {
 
@@ -24,7 +20,6 @@ public class EmployeeController {
     }
 
     @GET
-    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllEmployees() {
         return Response
@@ -46,7 +41,7 @@ public class EmployeeController {
     }
 
     @GET
-    @Path("/get/{name}")
+    @Path("/name/{name}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getEmployeeByName(@PathParam("name") String name) {
         return Response
@@ -57,7 +52,7 @@ public class EmployeeController {
     }
 
     @GET
-    @Path("/get/{departmentId}")
+    @Path("/id/{departmentId}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getEmployeesByDepartmentId(@PathParam("departmentId") Long departmentId) {
         return Response
@@ -68,7 +63,6 @@ public class EmployeeController {
     }
 
     @POST
-    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addEmployee(@Valid Employee employee){
@@ -80,7 +74,6 @@ public class EmployeeController {
     }
 
     @PUT
-    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response updateEmployee(@Valid Employee employee) throws NoSuchElementFoundException {
