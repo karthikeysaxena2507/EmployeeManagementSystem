@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.4.6</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 	<groupId>DEMO</groupId>
 	<artifactId>demo-project</artifactId>
@@ -70,9 +70,14 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter</artifactId>
-			<scope>test</scope>
+			<groupId>org.openapitools</groupId>
+			<artifactId>openapi-generator-cli</artifactId>
+			<version>4.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.12</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -102,6 +107,33 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<version>2.4.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.openapitools</groupId>
+				<artifactId>openapi-generator-maven-plugin</artifactId>
+				<version>4.3.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<inputSpec>${project.basedir}/src/main/resources/swagger-files/demoProject-api.yaml</inputSpec>
+							<generatorName>jaxrs-cxf</generatorName>
+							<templateDirectory>${project.basedir}/src/main/resources/swagger-files</templateDirectory>
+							<modelPackage>demoProject.models</modelPackage>
+							<apiPackage>demoProject.api</apiPackage>
+							<generateApiTests>false</generateApiTests>
+							<configOptions>
+								<sourceFolder>src/gen/java/main</sourceFolder>
+								<java8>true</java8>
+								<useBeanValidation>true</useBeanValidation>
+								<useAnnotatedBasePath>true</useAnnotatedBasePath>
+								<addConsumesProducesJson>true</addConsumesProducesJson>
+							</configOptions>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

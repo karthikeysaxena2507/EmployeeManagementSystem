@@ -1,0 +1,204 @@
+openapi: 3.0.0
+
+info:
+  version: 0.0.1
+  title: Company APIs
+  description: Swagger doc for company resource
+
+tags:
+  - name: CompanyEntity
+
+
+paths:
+  /companies:
+    get:
+      summary: Get All Companies
+      tags:
+        - CompanyEntity
+      description: API to fetch all companies
+      operationId: getAllCompanies
+      responses:
+        200:
+          description: "Success: all companies fetched"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompanyEntity'
+        404:
+          description: Invalid Request
+    post:
+      summary: add company
+      tags:
+        - CompanyEntity
+      description: API to add a new company
+      operationId: addCompany
+      requestBody:
+        $ref: '#/components/requestBodies/CompanyBody'
+      responses:
+        200:
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyEntity'
+        404:
+          description: Invalid Request
+    put:
+      summary: update company
+      tags:
+        - CompanyEntity
+      description: API to update company details
+      operationId: updateCompany
+      requestBody:
+        $ref: '#/components/requestBodies/UpdatedCompanyBody'
+      responses:
+        200:
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyEntity'
+        404:
+          description: Invalid Request
+
+
+  /companies/{companyId}:
+    parameters:
+      - in: path
+        name: companyId
+        schema:
+          type: integer
+          format: int64
+        required: true
+        description: Numeric ID of the company to fetch
+    get:
+      tags:
+        - CompanyEntity
+      summary: Get company by Id
+      description: API to fetch a company by its unique Id
+      operationId: getCompanyById
+      responses:
+        200:
+          description: "Success: company fetched"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyEntity'
+        404:
+          description: id not found
+    delete:
+      tags:
+        - CompanyEntity
+      summary: Delete company by id
+      description: API to delete a company by its unique Id
+      operationId: deleteCompanyById
+      responses:
+        200:
+          description: Deleted
+        404:
+          description: id not found
+
+
+  /companies/name/{companyName}:
+    get:
+      summary: Get company by company Name
+      tags:
+        - CompanyEntity
+      description: API to fetch company by its name
+      operationId: getCompanyByName
+      parameters:
+        - in: path
+          name: companyName
+          schema:
+            type: string
+          required: true
+          description: name of the company to fetch
+      responses:
+        200:
+          description: "Success: company fetched"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompanyEntity'
+        404:
+          description: "Invalid Request"
+          content: {}
+
+
+  /companies/count/{employeeCount}:
+    get:
+      summary: Get companies by employee Count
+      tags:
+        - CompanyEntity
+      description: API to fetch companies having min {employeeCount} employees
+      operationId: getCompanyByMinNoEmployees
+      parameters:
+        - in: path
+          name: employeeCount
+          schema:
+            type: integer
+            format: int64
+          required: true
+          description: "min no of emoloyees"
+      responses:
+        200:
+          description: "Success: companies fetched"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompanyEntity'
+        404:
+          description: Invalid Request
+          content: {}
+
+
+
+components:
+  schemas:
+    CompanyEntity:
+      description: This is a Company Model
+      type: object
+      properties:
+        companyId:
+          description: The unique Id of a company
+          type: integer
+          format: int64
+        companyName:
+          description: Name of the founder
+          type: string
+        employeeCount:
+          description: Number of employees in the company
+          type: integer
+          format: int64
+    NewCompany:
+      description: This is a new Company Object
+      type: object
+      properties:
+        companyName:
+          description: Name of the founder
+          type: string
+        employeeCount:
+          description: Number of employees in the company
+          type: integer
+          format: int64
+  requestBodies:
+    CompanyBody:
+      description: The new company data
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NewCompany'
+    UpdatedCompanyBody:
+      description: The new company data
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CompanyEntity'

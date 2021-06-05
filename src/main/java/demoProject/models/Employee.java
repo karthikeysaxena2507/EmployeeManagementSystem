@@ -7,8 +7,6 @@ import org.eclipse.persistence.annotations.BatchFetchType;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-import static javax.persistence.CascadeType.ALL;
-
 @Entity
 @Table(name = "employees")
 public class Employee {

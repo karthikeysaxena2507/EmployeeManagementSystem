@@ -38,6 +38,7 @@ public class Department {
      *                 It prevents the need to explicitly delete items from child table.
      */
     @OneToMany(targetEntity = Employee.class, mappedBy = "department", cascade = ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "employee_id")
     @JsonManagedReference
     @BatchFetch(BatchFetchType.IN)
     @PrivateOwned

@@ -1,0 +1,30 @@
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
+
+{{#description}}
+    /**
+    * {{{description}}}
+    **/
+
+{{/description}}
+{{>additionalModelTypeAnnotations}}{{#discriminator}}{{>typeInfoAnnotation}}{{/discriminator}}@Data @Builder @AllArgsConstructor @NoArgsConstructor(force=true)
+public class {{classname}} {{#parent}}extends {{{parent}}}{{/parent}}{{#serializableModel}} implements Serializable{{/serializableModel}} {
+{{#vars}}{{#isEnum}}{{^isContainer}}
+    {{>enumClass}}{{/isContainer}}{{#isContainer}}{{#mostInnerItems}}
+    {{>enumClass}}{{/mostInnerItems}}{{/isContainer}}{{/isEnum}}
+{{^isPrimitiveType}}{{^isDate}}{{^isDateTime}}{{^isString}}{{^isFile}}{{#useBeanValidation}}
+    @Valid{{/useBeanValidation}}{{/isFile}}{{/isString}}{{/isDateTime}}{{/isDate}}{{/isPrimitiveType}}
+@JsonProperty("{{baseName}}")
+{{#vendorExtensions.x-extra-annotation}}
+    {{{vendorExtensions.x-extra-annotation}}}
+{{/vendorExtensions.x-extra-annotation}}
+{{#useBeanValidation}}{{>beanValidation}}{{/useBeanValidation}}
+{{#isContainer}}
+    private {{{datatypeWithEnum}}} {{name}}{{#required}} = {{{defaultValue}}}{{/required}}{{^required}} = null{{/required}};
+{{/isContainer}}
+{{^isContainer}}
+    private {{{datatypeWithEnum}}} {{name}}{{#defaultValue}} = {{{.}}}{{/defaultValue}};
+{{/isContainer}}
+{{/vars}}
+
+}

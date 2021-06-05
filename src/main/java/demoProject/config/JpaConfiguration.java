@@ -38,7 +38,6 @@ public class JpaConfiguration extends JpaBaseConfiguration {
     protected Map<String, Object> getVendorProperties() {
         HashMap<String, Object> map = new HashMap<>();
         map.putAll(this.jpaProperties.getProperties());
-//        System.out.println(map);
         return map;
     }
 }
