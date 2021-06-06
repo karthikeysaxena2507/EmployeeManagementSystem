@@ -23,7 +23,6 @@ public class DepartmentController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllDepartments() {
-        System.out.println(departmentRepository.getAllDepartments().size());
         return Response
                 .status(Response.Status.OK)
                 .entity(departmentRepository.getAllDepartments())
@@ -76,7 +75,7 @@ public class DepartmentController {
     }
 
     @GET
-    @Path("/get/{name}")
+    @Path("/name/{name}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getDepartmentByName(@PathParam("name") String name) {
         return Response
@@ -93,6 +92,16 @@ public class DepartmentController {
         return Response
                 .status(Response.Status.OK)
                 .entity(departmentRepository.getDepartmentsByMinNoOfEmployees(count))
+                .type(MediaType.APPLICATION_JSON_TYPE)
+                .build();
+    }
+
+    @DELETE
+    public Response deleteAllDepartments() {
+        departmentRepository.deleteAll();
+        return Response
+                .status(Response.Status.OK)
+                .entity("Success")
                 .type(MediaType.APPLICATION_JSON_TYPE)
                 .build();
     }

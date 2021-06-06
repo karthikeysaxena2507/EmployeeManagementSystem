@@ -41,7 +41,10 @@ public class CompanyRepositoryImpl implements CompanyRepositoryCustom, demoProje
 
     @Override
     public void deleteCompanyById(Long companyId) {
-        companyRepository.deleteById(companyId);
+        if(companyRepository.existsById(companyId)) {
+            companyRepository.deleteById(companyId);
+        }
+        else throw new NoSuchElementFoundException();
     }
 
     @Override
@@ -82,7 +85,10 @@ public class CompanyRepositoryImpl implements CompanyRepositoryCustom, demoProje
 
     @Override
     public CompanyEntity updateCompany(CompanyEntity companyEntity) {
-        Company updatedCompany = companyRepository.save(companyMapper.toCompany(companyEntity));
-        return companyMapper.toCompanyEntity(updatedCompany);
+        if(companyRepository.existsById(companyEntity.getCompanyId())) {
+            Company updatedCompany = companyRepository.save(companyMapper.toCompany(companyEntity));
+            return companyMapper.toCompanyEntity(updatedCompany);
+        }
+        else throw new NoSuchElementFoundException();
     }
 }

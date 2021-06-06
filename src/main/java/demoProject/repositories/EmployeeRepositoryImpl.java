@@ -75,9 +75,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepositoryCustom {
 
     public List<Employee> findEmployeesByDepartmentId(Long departmentId) {
         List<Employee> employees = employeeRepository.findAll();
-        System.out.println(employees);
         employees = employees.stream().filter(e -> e.getDepartment().getDepartmentId().equals(departmentId)).collect(Collectors.toList());
-        System.out.println(employees);
         return employees;
     }
 }
