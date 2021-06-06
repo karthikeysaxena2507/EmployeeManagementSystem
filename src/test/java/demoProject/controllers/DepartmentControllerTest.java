@@ -1,6 +1,5 @@
 package demoProject.controllers;
 
-import demoProject.DemoProjectTests;
 import demoProject.models.Department;
 import io.restassured.RestAssured;
 import io.restassured.mapper.TypeRef;
@@ -9,7 +8,7 @@ import org.junit.jupiter.api.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DepartmentControllerTest extends DemoProjectTests {
+public class DepartmentControllerTest extends BaseControllerTest{
 
     private Department department;
 

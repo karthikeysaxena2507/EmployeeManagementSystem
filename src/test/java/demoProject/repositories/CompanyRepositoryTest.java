@@ -1,6 +1,5 @@
 package demoProject.repositories;
 
-import demoProject.DemoProjectTests;
 import demoProject.exceptions.NoSuchElementFoundException;
 import demoProject.models.Company;
 import org.junit.jupiter.api.*;
@@ -8,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public class CompanyRepositoryTest extends DemoProjectTests {
+public class CompanyRepositoryTest extends BaseRepositoryTest {
 
     @Autowired
     private CompanyRepository companyRepository;

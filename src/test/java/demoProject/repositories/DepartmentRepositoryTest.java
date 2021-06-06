@@ -1,6 +1,5 @@
 package demoProject.repositories;
 
-import demoProject.DemoProjectTests;
 import demoProject.exceptions.NoSuchElementFoundException;
 import demoProject.models.Department;
 import demoProject.models.Employee;
@@ -10,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DepartmentRepositoryTest extends DemoProjectTests {
+public class DepartmentRepositoryTest extends BaseRepositoryTest{
 
     @Autowired
     private DepartmentRepository departmentRepository;
