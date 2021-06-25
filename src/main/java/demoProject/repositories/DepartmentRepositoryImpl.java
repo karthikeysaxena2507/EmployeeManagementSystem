@@ -3,10 +3,12 @@ package demoProject.repositories;
 import demoProject.exceptions.NoSuchElementFoundException;
 import demoProject.models.Department;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class DepartmentRepositoryImpl implements DepartmentRepositoryCustom {
 
     private DepartmentRepository departmentRepository;
@@ -17,7 +19,9 @@ public class DepartmentRepositoryImpl implements DepartmentRepositoryCustom {
     }
 
     public Department getDepartmentById(Long departmentId) throws NoSuchElementFoundException {
-        return departmentRepository.findById(departmentId).orElseThrow(NoSuchElementFoundException::new);
+        Department department = departmentRepository.findById(departmentId).orElseThrow(NoSuchElementFoundException::new);
+        System.out.println(department.getDepartmentName());
+        return department;
     }
 
     public List<Department> getAllDepartments() {
