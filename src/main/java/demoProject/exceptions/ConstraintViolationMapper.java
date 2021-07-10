@@ -1,7 +1,6 @@
 package demoProject.exceptions;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.annotation.Priority;
 import javax.validation.ConstraintViolationException;
@@ -12,12 +11,11 @@ import javax.ws.rs.ext.Provider;
 
 @Provider
 @Priority(1)
+@Slf4j
 public class ConstraintViolationMapper implements ExceptionMapper<ConstraintViolationException> {
 
-    Logger logger = LoggerFactory.getLogger(ConstraintViolationMapper.class);
-
     public ConstraintViolationMapper() {
-        logger.info("Mapper Created now");
+        log.info("Mapper Created now");
     }
 
     @Override

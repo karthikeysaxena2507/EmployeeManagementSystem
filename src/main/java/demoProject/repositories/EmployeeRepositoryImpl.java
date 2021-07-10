@@ -3,8 +3,7 @@ package demoProject.repositories;
 import demoProject.exceptions.NoSuchElementFoundException;
 import demoProject.models.Department;
 import demoProject.models.Employee;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
@@ -13,6 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class EmployeeRepositoryImpl implements EmployeeRepositoryCustom {
 
     private EmployeeRepository employeeRepository;
@@ -26,8 +26,6 @@ public class EmployeeRepositoryImpl implements EmployeeRepositoryCustom {
         this.departmentRepository = departmentRepository;
 
     }
-
-    Logger logger = LoggerFactory.getLogger(EmployeeRepositoryImpl.class);
 
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
@@ -43,12 +41,12 @@ public class EmployeeRepositoryImpl implements EmployeeRepositoryCustom {
 
     public Employee addEmployee(Employee employee) {
         Long departmentId = employee.getDepartment().getDepartmentId();
-        logger.info("{}", departmentId);
+        log.info("{}", departmentId);
         Department department = departmentRepository.findById(departmentId).orElseThrow(NoSuchElementFoundException::new);
         List<Employee> employees = department.getEmployees();
         employees.add(employee);
         department.setEmployees(employees);
-        logger.info("{}", employees.size());
+        log.info("{}", employees.size());
         departmentRepository.save(department);
         return employee;
     }
